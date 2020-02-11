@@ -90,15 +90,15 @@ class TransportMethod {
 
     double pleasure_factor      // how much the user enjoys this method of transportation
 
-    public int tripCarbonScore(Trip individual_trip)    // subclasses override these calculation methods
-    public int tripHealthScore(Trip individual_trip)
-    public int tripTimeScore(Trip indivi...)
+    public static int tripCarbonScore(Trip individual_trip)    // subclasses override these calculation methods
+    public static int tripHealthScore(Trip individual_trip)
+    public static int tripTimeScore(Trip indivi...)
 }
 
-class Walking extends TransportMethod (implements CalcMethod) { // not sure if it needs an interface, or should simply override superclass methods
-
+class Walking extends TransportMethod { 
 }
 
-class Cycling extends TransportMethod etc. {
+class Cycling extends TransportMethod {
 
 }
+etc.
