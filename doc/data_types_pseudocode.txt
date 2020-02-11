@@ -1,0 +1,104 @@
+Data Structures (preliminary):
+
+Members marked with * are critical for scoring. GPS and advanced speed calculations
+can be left out from our implementation, but they should be included in the project
+description and presentation materials. Only a few of the methods needed are listed.
+
+class Trip {        // Background service decides when to start a new trip element
+    Position starting_point     // storing position information long term should require consent from the user
+    Position ending_point
+    TransportMethod method_of_transportation*   // reference to a superclass, which has consists of static data and methods
+
+    Time start      //  Time is a placeholder, use one of appropriate Java time classes, see that it works with Android
+    Time end
+
+    GPSEntry[] trip_data    //  single samples taken from GPS every 2 seconds or so, must be variable length
+
+    double distance_travelled*
+    double direct_distance
+    double average_speed(*) // Important if we want to model different kinds of driving (urban vs. highway) etc.
+
+    double pleasure_factor_override     // default pleasure factor from TransportMethod can be overridden
+                                        // if the user had a particularly good or bad time
+
+    int carbon_score
+    int health_score
+    int time_score
+    (int pleasure_score)
+
+    String comment_field    // stores user notes, what the trip was about etc.
+}
+
+class Position {
+    double latitude
+    double longitude
+
+    public static double measureDistance(Position pos1, Position pos2)
+}
+
+class GPSEntry {
+    position start      // end of last position or initial position if trip just activated
+    position end
+
+    double distance_travelled       // maybe not necessary but could simplify things at some point, especially
+                                    // if calculating based on gps speed and not position
+    double instantaneous_speed
+}
+
+class DailyStats {      // The basic form of statistics, weekly and monthly stats can work simply by looking at the
+                        // calendar and pointing at the start date, adding up the data from an appropriate number of days.
+                        // Long-term stats should be calculated as a daily average so that they are directly comparable,
+                        // but having cumulative scores as well wouldn't hurt
+    Time date
+    Trip[] trips_of_the_day*    // should be variable length so that you can always add to it if necessary,
+                                // use ArrayList or something like that
+    // incomplete
+    public int getDailyCarbonScore()
+    public int getDailyHealthScore()
+    public int getDailyTimeScore()
+    (public int getDailyPleasureScore())
+
+    String daily_notes
+}
+
+/*
+class WeeklyStats { //  optional
+    // weekly statistics
+    DailyStats start_of_the_week
+    int week_number
+}
+*/
+
+class WeeklyNote {
+    // if we want to let the user write notes on the week level
+    Time start_date
+    String note_text_field
+}
+
+class MontlyNote {  // 
+    //
+    Time start_date
+    String note_text_field
+}
+
+class TransportMethod {
+    private class AvgVelocity {
+        
+    }
+
+    AvgVelocity velocity_table
+
+    double pleasure_factor      // how much the user enjoys this method of transportation
+
+    public int tripCarbonScore(Trip individual_trip)    // subclasses override these calculation methods
+    public int tripHealthScore(Trip individual_trip)
+    public int tripTimeScore(Trip indivi...)
+}
+
+class Walking extends TransportMethod (implements CalcMethod) { // not sure if it needs an interface, or should simply override superclass methods
+
+}
+
+class Cycling extends TransportMethod etc. {
+
+}
