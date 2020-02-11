@@ -7,7 +7,7 @@ description and presentation materials. Only a few of the methods needed are lis
 class Trip {        // Background service decides when to start a new trip element
     Position starting_point     // storing position information long term should require consent from the user
     Position ending_point
-    TransportMethod method_of_transportation*   // reference to a superclass, which has consists of static data and methods
+    TransportMethod method_of_transportation*   // reference to a superclass, which consists of static data and methods
 
     Time start      //  Time is a placeholder, use one of appropriate Java time classes, see that it works with Android
     Time end
