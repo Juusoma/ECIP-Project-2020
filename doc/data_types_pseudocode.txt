@@ -1,7 +1,7 @@
 Data Structures (preliminary):
 
 Members marked with * are critical for scoring. GPS and advanced speed calculations
-can be left out from our implementation, but they should be included in the project
+can be left out of our implementation, but they should be included in the project
 description and presentation materials. Only a few of the methods needed are listed.
 
 class Trip {        // Background service decides when to start a new trip element
