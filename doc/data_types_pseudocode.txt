@@ -4,7 +4,7 @@ Members marked with * are critical for scoring. GPS and advanced speed calculati
 can be left out of our implementation, but they should be included in the project
 description and presentation materials. Only a few of the methods needed are listed.
 
-class Trip {        // Background service decides when to start a new trip element
+class Trip {        // Background service decides when to start and stop a trip element
     Position starting_point     // storing position information long term should require consent from the user
     Position ending_point
     TransportMethod method_of_transportation*   // reference to a superclass, which consists of static data and methods
@@ -27,6 +27,9 @@ class Trip {        // Background service decides when to start a new trip eleme
     (int pleasure_score)
 
     String comment_field    // stores user notes, what the trip was about etc.
+    
+    double getDistance()
+    double getAvgSpeed()
 }
 
 class Position {
