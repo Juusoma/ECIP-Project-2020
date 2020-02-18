@@ -12,7 +12,9 @@ class Trip {        // Background service decides when to start and stop a trip 
     Time start      //  Time is a placeholder, use one of appropriate Java time classes, see that it works with Android
     Time end
 
-    GPSEntry[] trip_data    //  single samples taken from GPS every 2 seconds or so, must be variable length
+    ArrayList<Location> trip_data    // single samples taken from GPS every 2-5 seconds or so, Location
+                                     // is an in-built Android class which has all the functions you could ever
+                                     // hope for
 
     double distance_travelled*
     double direct_distance
